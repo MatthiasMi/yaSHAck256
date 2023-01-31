@@ -2,7 +2,7 @@
 name = "yashack256"
 version = "0.0.7"
 authors = ["Matthias Min"]
-edition = "2021"
+edition = "2018"
 
 
 [dependencies]
