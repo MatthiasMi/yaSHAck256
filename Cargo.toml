@@ -1,0 +1,8 @@
+[package]
+name = "yashack256"
+version = "0.0.7"
+authors = ["Matthias Min"]
+edition = "2021"
+
+
+[dependencies]
