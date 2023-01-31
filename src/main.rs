@@ -1,8 +1,7 @@
 use std::{fs, io::Read};
 use yashack256::Sha256;
-
 fn main() {
-    let mut input = fs::File::open("Cargo.toml").unwrap();
+    let mut input = fs::File::open("tests/test_template.rs").unwrap();
 
     let mut bytes = Vec::<u8>::new();
     input.read_to_end(&mut bytes).unwrap();
@@ -12,7 +11,6 @@ fn main() {
     let hash = h.to_string();
 
     // Sanity check against built-in sha256sum
-    let sha256sum = "9bd330410e2d800aabb8b79a3a0a655f2f6f1b321edb21679c114bd360f2510e";
+    let sha256sum = "ce011240884ff4b347218b7296cfd300a107b04a61e07e90994291c0656ca939";
     assert_eq!(sha256sum, hash);
-    print!("{}", hash)
 }
