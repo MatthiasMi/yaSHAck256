@@ -31,7 +31,7 @@ impl Sha256 {
         Sha256 { h: H0 }
     }
 
-    /// `update` the state with hashed blocks of the padded message, c.f. FIPS PUB 180-4, Ch. 6.2.1.
+    /// `update` the state with hashed blocks after padding message, c.f. FIPS PUB 180-4, Ch. 6.2.1.
     pub fn update(&mut self, v: &mut Vec<u8>) {
         let num_blocks = self.preprocess(v);
 
@@ -131,8 +131,8 @@ impl fmt::Display for Sha256 {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         write!(
             f,
-            "{:08x?}{:08x?}{:08x?}{:08x?}{:08x?}{:08x?}{:08x?}{:08x?}",
-            self.h[0], self.h[1], self.h[2], self.h[3], self.h[4], self.h[5], self.h[6], self.h[7]
+            "{}",
+            self.h.iter().map(|x| format!("{:08x}", x)).collect::<String>()
         )
     }
 }
